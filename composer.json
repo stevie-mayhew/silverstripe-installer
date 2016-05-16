@@ -3,10 +3,10 @@
 	"description": "The SilverStripe Framework Installer",
 	"require": {
 		"php": ">=5.5.0",
-		"silverstripe/cms": "self.version",
-		"silverstripe/framework": "self.version",
-		"silverstripe/reports": "self.version",
-		"silverstripe/siteconfig": "self.version",
+		"silverstripe/cms": "dev-master",
+		"silverstripe/framework": "dev-master",
+		"silverstripe/reports": "dev-master",
+		"silverstripe/siteconfig": "dev-master",
 		"silverstripe-themes/simple": "3.1.*",
 		"silverstripe/asset-admin": "^1"
 	},
@@ -22,5 +22,13 @@
 		"process-timeout": 600
 	},
 	"prefer-stable": true,
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"autoload": {
+		"psr-4": {
+			"SilverStripe\\Installer\\": "src/SilverStripe/Installer/"
+		}
+	},
+	"scripts": {
+		"post-create-project-cmd": "SilverStripe\\Installer\\PostCreateProjectCommand::process"
+	}
 }
